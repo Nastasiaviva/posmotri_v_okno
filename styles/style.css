@@ -16,7 +16,6 @@ html {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-  position: relative;
 }
 
 h1,
@@ -41,7 +40,6 @@ ol {
 .content {
   margin: 133px 30px;
   width: 1140px;
-  height: 534px;
   display: flex;
 }
 
@@ -58,7 +56,6 @@ ol {
 .content__list {
   height: 298px;
   overflow: auto;
-  overflow-x: hidden;
   position: relative;
 }
 
@@ -74,7 +71,7 @@ ol {
 }
 
 .result__video {
-  object-fit: fill;
+  object-fit: cover;
   height: 100%;
   width: 100%;
 }
@@ -92,9 +89,8 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  object-fit: fill;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
@@ -165,10 +161,6 @@ ol {
   border: 0;
 }
 
-.search-form__label {
-  width: fit-content;
-}
-
 .button {
   cursor: pointer;
   height: 34px;
@@ -177,7 +169,7 @@ ol {
   font-size: 18px;
   line-height: 21px;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   background-color: transparent;
 }
 
@@ -209,14 +201,14 @@ ol {
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
-  display: inline-block;
+  display: inline-block; /*через флекс не работает, флекс указан для .search-form__checkbox-list, это значение необходимо, чтобы .search-form__label-text был в линию*/
   padding: 1px;
 }
 
 .search-form__checkbox-list {
   display: flex;
   flex-direction: row;
-  width: 212px;
+  gap: 15px;
   justify-content: space-between;
 }
 
@@ -236,6 +228,7 @@ ol {
 
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
 input[type="checkbox"]:checked + span::after {
@@ -246,13 +239,17 @@ input[type="checkbox"]:checked + span::after {
   background-color: #fff;
 }
 
-.search-form__label:hover {
+.search-form__label-text:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
 .button:hover {
   text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
 }
 
 .button:focus {
