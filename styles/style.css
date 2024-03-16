@@ -16,6 +16,9 @@ html {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1,
@@ -60,7 +63,7 @@ ol {
 }
 
 .content__details {
-  width: 399px;
+  width: 100%;
 }
 
 .result__video-container {
@@ -201,8 +204,13 @@ ol {
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
-  display: inline-block; /*через флекс не работает, флекс указан для .search-form__checkbox-list, это значение необходимо, чтобы .search-form__label-text был в линию*/
   padding: 1px;
+}
+
+.search-form__label {
+  display: flex;
+  text-align: center;
+  gap: 5px;
 }
 
 .search-form__checkbox-list {
@@ -219,7 +227,6 @@ ol {
 
 .more-button {
   width: 399px;
-  margin-top: 20px;
 }
 
 .search-form__textfield:focus {
@@ -239,7 +246,7 @@ input[type="checkbox"]:checked + span::after {
   background-color: #fff;
 }
 
-.search-form__label-text:hover {
+.search-form__label:hover .search-form__label-text {
   cursor: pointer;
   text-decoration: underline;
 }
